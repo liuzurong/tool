@@ -1,0 +1,19 @@
+platform :ios, '8.0'
+target ‘SLFoundation’ do
+pod 'Masonry'
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'AFNetworking', '3.1.0'
+
+pod 'ReactiveObjC', '~> 2.1.0'
+pod 'Toast', '~> 2.4'
+pod 'JSONModel'
+end
+
+post_install do |installer|
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |config|
+config.build_settings['ARCHS'] = "armv7s armv7 arm64"
+end
+end
+end
